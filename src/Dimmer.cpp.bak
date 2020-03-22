@@ -113,8 +113,7 @@ ISR(TIMER_COMPA_VECTOR(DIMMER_TIMER)) {
 }
 
 // Constructor
-Dimmer::Dimmer(uint8_t zcpin,uint8_t pin, uint8_t mode, double rampTime, uint8_t freq) :
-        zerocrossPin(zcpin),
+Dimmer::Dimmer(uint8_t pin, uint8_t mode, double rampTime, uint8_t freq) :
         triacPin(pin),
         operatingMode(mode),
         lampState(false),
@@ -150,8 +149,8 @@ void Dimmer::begin(uint8_t value, bool on) {
 
   if (!started) {
     // Start zero cross circuit if not started yet
-    pinMode(zerocrossPin, INPUT);
-    attachInterrupt(digitalPinToInterrupt(zerocrossPin), callZeroCross, FALLING);
+    pinMode(DIMMER_ZERO_CROSS_PIN, INPUT);
+    attachInterrupt(digitalPinToInterrupt(DIMMER_ZERO_CROSS_PIN), callZeroCross, FALLING);
 
     // Setup timer to fire every 50us @ 60Hz
     TCNT(DIMMER_TIMER) = 0;                      // Clear timer

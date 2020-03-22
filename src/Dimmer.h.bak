@@ -65,7 +65,7 @@ class Dimmer {
      *
      * @see begin()
      */
-    Dimmer(uint8_t zcpin, uint8_t pin, uint8_t mode = DIMMER_NORMAL, double rampTime = 1.5, uint8_t freq = 60);
+    Dimmer(uint8_t pin, uint8_t mode = DIMMER_NORMAL, double rampTime = 1.5, uint8_t freq = 60);
 
     /**
      * Initializes the module.
@@ -140,7 +140,6 @@ class Dimmer {
     static bool started;
     uint8_t dimmerIndex;
     uint8_t triacPin;
-    uint8_t zerocrossPin;
     uint8_t operatingMode;
     bool lampState;
     uint8_t lampValue;
