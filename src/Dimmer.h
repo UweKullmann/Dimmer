@@ -11,7 +11,9 @@
 /**
  * Maximum number of triacs that can be used. Can be decreased to save RAM.
  */
+#ifndef DIMMER_MAX_TRIAC
 #define DIMMER_MAX_TRIAC 10
+#endif
 
 /**
  * Timer to use for control of triac timing.
@@ -32,9 +34,10 @@
  *
  * @see https://www.arduino.cc/en/Reference/attachInterrupt for more information.
  */
+#ifndef DIMMER_ZERO_CROSS_PIN
 #define DIMMER_ZERO_CROSS_PIN       2
-#define DIMMER_ZERO_CROSS_INTERRUPT 0
-
+//#define DIMMER_ZERO_CROSS_INTERRUPT 0
+#endif
 /**
  * Possible operating modes for the dimmer library.
  */
